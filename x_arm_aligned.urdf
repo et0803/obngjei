@@ -1,0 +1,770 @@
+<robot
+  name="x_arm">
+
+  <link
+    name="world"/>
+
+  <link
+    name="base_link">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="base_link_to_world"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="world" />
+    <child
+      link="base_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0.1"
+      velocity="0.03" />
+  </joint>
+
+
+  <link
+    name="link1">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_link1_to_base"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.523"
+      upper="2.4"
+      effort="0.1"
+      velocity="0.03" />
+  </joint>
+
+  <link
+    name="link2">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 1.5707" />
+      <geometry>
+        <mesh
+          filename="./stl/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_link2_to_link1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.4"
+      upper="2.2"
+      effort="0.1"
+      velocity="0.03" />
+  </joint>
+
+  <link
+    name="link3">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 -1.5707 0" />
+      <geometry>
+        <mesh
+          filename="./stl/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_link3_to_link2"
+    type="revolute">
+    <origin
+      xyz="0.205 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0.1"
+      velocity="0.03" />
+  </joint>
+
+  <link
+    name="link4">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707 1.5707 0" />
+      <geometry>
+        <mesh
+          filename="./stl/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_link4_to_link3"
+    type="revolute">
+    <origin
+      xyz="0.125 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.2"
+      upper="2.1"
+      effort="0.1"
+      velocity="0.03" />
+  </joint>
+
+  <link
+    name="link5">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707 0 -1.5707" />
+      <geometry>
+        <mesh
+          filename="./stl/link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_link5_to_link4"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0.1"
+      velocity="0.03" />
+  </joint>
+
+
+  <link
+    name="link6">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_link6_to_link5"
+    type="revolute">
+    <origin
+      xyz="0.257 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="link5" />
+    <child
+      link="link6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.4"
+      upper="1.57"
+      effort="0.1"
+      velocity="0.03" />
+  </joint>
+
+  <link
+    name="link7">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/link7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_link7_to_link6"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="link6" />
+    <child
+      link="link7" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.35"
+      upper="0.35"
+      effort="0.1"
+      velocity="0.03" />
+  </joint>
+
+  <link name="handRoot" />
+
+  <joint
+    name="joint_axis_handRoot_to_link7"
+    type="fixed">
+    <origin
+      xyz="0.08 0.03 0"
+      rpy="1.5707 0 0" />
+    <parent
+      link="link7" />
+    <child
+      link="handRoot" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+  <link
+    name="index0">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/index0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_index0_to_handRoot"
+    type="revolute">
+    <origin
+      xyz="0.0272 0.018935 0.04"
+      rpy="2.7373E-17 1.249E-16 1.628E-16" />
+    <parent
+      link="handRoot" />
+    <child
+      link="index0" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="index1">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/index1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_index1_to_index0"
+    type="revolute">
+    <origin
+      xyz="0.03 0 0"
+      rpy="-2.549E-18 -1.249E-16 -1.5991E-16" />
+    <parent
+      link="index0" />
+    <child
+      link="index1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="index2">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/index2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_index2_to_index1"
+    type="revolute">
+    <origin
+      xyz="0.025 0 0"
+      rpy="-2.5487E-17 1.6653E-16 -1.6385E-17" />
+    <parent
+      link="index1" />
+    <child
+      link="index2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="middle0">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/middle0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_middle0_to_handRoot"
+    type="revolute">
+    <origin
+      xyz="0.0272 0.0019352 0.04"
+      rpy="2.6352E-22 1.1102E-16 6.2949E-22" />
+    <parent
+      link="handRoot" />
+    <child
+      link="middle0" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="middle1">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/middle1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_middle1_to_middle0"
+    type="revolute">
+    <origin
+      xyz="0.035 0 0"
+      rpy="-7.7698E-19 -8.3267E-16 -3.0524E-17" />
+    <parent
+      link="middle0" />
+    <child
+      link="middle1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="middle2">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/middle2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_middle2_to_middle1"
+    type="revolute">
+    <origin
+      xyz="0.03 0 0"
+      rpy="-5.4794E-18 -1.3878E-16 3.3346E-18" />
+    <parent
+      link="middle1" />
+    <child
+      link="middle2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="wedding0">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/wedding0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_wedding0_to_handRoot"
+    type="revolute">
+    <origin
+      xyz="0.0272 -0.015065 0.04"
+      rpy="-4.3009E-19 2.8366E-30 -1.6011E-17" />
+    <parent
+      link="handRoot" />
+    <child
+      link="wedding0" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="wedding1">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/wedding1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_wedding1_to_wedding0"
+    type="revolute">
+    <origin
+      xyz="0.03 0 0"
+      rpy="-6.4346E-18 -1.1102E-16 3.1561E-17" />
+    <parent
+      link="wedding0" />
+    <child
+      link="wedding1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="wedding2">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/wedding2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_wedding2_to_wedding1"
+    type="revolute">
+    <origin
+      xyz="0.028 0 0"
+      rpy="-4.7986E-18 -1.6653E-16 -6.0053E-18" />
+    <parent
+      link="wedding1" />
+    <child
+      link="wedding2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="little0">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/little0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_joint0_to_handRoot"
+    type="revolute">
+    <origin
+      xyz="0.0272 -0.032065 0.04"
+      rpy="3.7775E-21 2.8458E-30 -2.7162E-21" />
+    <parent
+      link="handRoot" />
+    <child
+      link="little0" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="little1">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/little1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_little1_to_little0"
+    type="revolute">
+    <origin
+      xyz="0.025 0 0"
+      rpy="1.1852E-17 -1.6653E-16 1.0389E-17" />
+    <parent
+      link="little0" />
+    <child
+      link="little1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link
+    name="little2">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="./stl/little2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="joint_axis_little2_to_little1"
+    type="revolute">
+    <origin
+      xyz="0.022 0 0"
+      rpy="1.0004E-17 -3.8858E-16 -7.9481E-18" />
+    <parent
+      link="little1" />
+    <child
+      link="little2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+</robot>
